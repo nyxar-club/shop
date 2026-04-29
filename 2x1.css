@@ -1,0 +1,274 @@
+/* ============================================================
+   NYXAR — 2x1.css
+   ============================================================ */
+
+.page-2x1 { background: var(--bg2); }
+
+.x2-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 2rem) clamp(1rem,4vw,2.5rem) 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Encabezado ── */
+.x2-header { text-align: center; }
+.x2-header h1 { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 700; margin: .3rem 0 .6rem; }
+.x2-sub { font-size: .88rem; color: var(--muted); }
+.x2-sub strong { color: var(--acc); }
+
+/* ── Steps ── */
+.x2-step {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem;
+  box-shadow: var(--sh);
+}
+.step-label {
+  display: flex; align-items: center; gap: .8rem;
+  font-size: .95rem; font-weight: 700; margin-bottom: 1.3rem;
+}
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--acc); color: #fff;
+  font-size: .76rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-hint { font-size: .78rem; color: var(--muted); margin-bottom: 1rem; }
+
+/* ── 2 columnas ── */
+.x2-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+@media (max-width: 640px) { .x2-2col { grid-template-columns: 1fr; } }
+
+/* ── Título camisa ── */
+.shirt-ttl {
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text2); margin-bottom: .75rem;
+}
+
+/* ── Color picker ── */
+.color-picker-grid { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.cpick {
+  display: flex; align-items: center; gap: .4rem;
+  background: var(--bg3); border: 1.5px solid var(--border);
+  color: var(--muted); padding: .34rem .72rem;
+  border-radius: 25px; font-size: .7rem; font-weight: 600;
+  transition: var(--t); cursor: pointer;
+}
+.cpick:hover  { border-color: var(--acc); color: var(--acc); }
+.cpick.active { background: var(--acc-lt); border-color: var(--acc); color: var(--acc); }
+.cp-dot {
+  width: 13px; height: 13px; border-radius: 50%;
+  flex-shrink: 0; display: inline-block;
+}
+
+/* ── Previsualización color camisa (paso 1) ── */
+.shirt-color-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .7rem;
+  margin-top: .5rem;
+}
+.shirt-preview-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: .35rem;
+}
+.preview-side-lbl {
+  font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.shirt-color-img {
+  width: 100%; aspect-ratio: 3/4;
+  object-fit: cover; border-radius: 10px;
+  background: var(--bg3);
+}
+.shirt-silhouette-wrap {
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: 10px; background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+}
+.shirt-silhouette {
+  width: 65%; height: 75%;
+  clip-path: polygon(22% 0%,8% 22%,20% 28%,17% 100%,83% 100%,80% 28%,92% 22%,78% 0%,65% 8%,50% 14%,35% 8%);
+  transition: background .3s ease;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+/* ── Chips talla y corte ── */
+.chips-talla { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tchip {
+  background: var(--bg3); border: 1.5px solid var(--border);
+  color: var(--muted); padding: .38rem .8rem;
+  border-radius: 7px; font-size: .72rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  transition: var(--t); cursor: pointer;
+}
+.tchip:hover  { border-color: var(--acc); color: var(--acc); }
+.tchip.active { background: var(--acc); border-color: var(--acc); color: #fff; }
+
+/* ── Opciones de diseño (paso 2) con frente/espalda ── */
+.design-options {
+  display: flex; flex-direction: column; gap: .8rem;
+}
+.design-opt {
+  background: var(--bg3); border: 2px solid var(--border);
+  border-radius: 12px; padding: 1rem;
+  cursor: pointer; transition: var(--t);
+  display: flex; flex-direction: column; gap: .7rem; text-align: left;
+}
+.design-opt:hover  { border-color: var(--acc3); }
+.design-opt.active { border-color: var(--acc); background: var(--acc-lt); }
+
+.design-previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem;
+}
+.design-preview-item {
+  display: flex; flex-direction: column; gap: .3rem; align-items: center;
+}
+.design-side-lbl {
+  font-size: .58rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.design-img-wrap {
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: 8px; overflow: hidden;
+  background: var(--bg4);
+  display: flex; align-items: center; justify-content: center;
+}
+.design-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.design-img-wrap.no-img::after {
+  content: 'IMG'; font-size: .7rem; color: var(--muted2);
+}
+
+.design-name {
+  font-size: .82rem; font-weight: 700;
+  color: var(--text2); letter-spacing: .06em; text-transform: uppercase;
+  text-align: center;
+}
+.design-opt.active .design-name { color: var(--acc); }
+
+/* ── Color del diseño (paso 3) ── */
+.design-color-grid { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+.dcbtn {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2.5px solid transparent; cursor: pointer;
+  transition: var(--t);
+  display: flex; align-items: center; justify-content: center;
+}
+.dcbtn:hover  { transform: scale(1.15); }
+.dcbtn.active { border-color: var(--acc); box-shadow: 0 0 0 2px var(--acc-lt); }
+.dcbtn .ck    { font-size: .58rem; opacity: 0; transition: var(--t); }
+.dcbtn.active .ck { opacity: 1; }
+.dc-selected  { font-size: .7rem; color: var(--muted); margin-top: .2rem; }
+
+/* ══════════════════════════════════════
+   VISTAS FINALES
+══════════════════════════════════════ */
+.x2-final {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .x2-final { grid-template-columns: 1fr; } }
+
+.x2-vistas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Bloque por camisa (A o B) */
+.vista-bloque {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: var(--sh);
+}
+
+/* Frente + Espalda en fila */
+.vista-sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: .8rem;
+}
+@media (max-width: 480px) { .vista-sides { grid-template-columns: 1fr 1fr; gap: .6rem; } }
+
+.vista-side {
+  display: flex; flex-direction: column; gap: .4rem; align-items: center;
+}
+
+/* Canvas de vista */
+.vista-canvas {
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: 12px; overflow: hidden;
+  background: var(--bg3);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+}
+
+/* Imagen de la camisa (fondo) */
+.vista-shirt-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Silueta fallback cuando no hay imagen */
+.vista-canvas.no-img .vista-shirt-img { display: none; }
+.vista-canvas .vista-shirt-shape {
+  position: absolute; z-index: 1;
+  width: 65%; height: 75%;
+  clip-path: polygon(22% 0%,8% 22%,20% 28%,17% 100%,83% 100%,80% 28%,92% 22%,78% 0%,65% 8%,50% 14%,35% 8%);
+  border: 1px solid rgba(0,0,0,.06);
+  transition: background .3s ease;
+}
+
+/* Overlay del diseño (color del diseño encima) */
+.vista-design-overlay {
+  position: absolute; z-index: 2;
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 900;
+  letter-spacing: .05em;
+  opacity: .5;
+  pointer-events: none;
+  transition: color .3s ease;
+}
+
+/* Caja de resumen */
+.x2-order-box {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+  box-shadow: var(--sh);
+  display: flex; flex-direction: column; gap: .5rem;
+  position: sticky; top: calc(var(--nav-h) + 1rem);
+}
+.x2-order-box h3 { font-size: .88rem; font-weight: 700; margin-bottom: .5rem; }
+.x2-row {
+  display: flex; justify-content: space-between;
+  font-size: .8rem; padding: .25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.x2-row:last-of-type { border-bottom: none; }
+.x2-total {
+  font-weight: 700; font-size: .95rem; color: var(--acc);
+  border-top: 1px solid var(--bv) !important;
+  margin-top: .3rem; padding-top: .6rem !important;
+}
+.x2-divider { height: 1px; background: var(--border); }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <title>NYXAR — Mi Armario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="armario.css"/>
+</head>
+<body class="armario-page">
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner" style="grid-template-columns:auto 1fr auto;gap:1rem">
+    <a href="index.html" class="btn-back">← Seguir comprando</a>
+    <a href="index.html" class="nav-logo" style="justify-self:center">
+      <img src="assets/icono-ppal.png" alt="NYXAR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-fallback" style="display:none">NYXAR</span>
+    </a>
+    <span style="min-width:80px"></span>
+  </div>
+</nav>
+
+<main class="arm-main">
+
+  <div class="arm-header">
+    <p class="eyebrow">Tu selección</p>
+    <h1>Mi <span class="acc">Armario</span></h1>
+  </div>
+
+  <!-- Estado vacío -->
+  <div class="arm-empty" id="armEmpty">
+    <div class="arm-empty-icon">🧺</div>
+    <h3>Tu armario está vacío</h3>
+    <p>Agrega prendas desde el catálogo para verlas aquí.</p>
+    <a href="index.html#productos" class="btn-main">Ver catálogo</a>
+  </div>
+
+  <!-- Lista de prendas + resumen -->
+  <div class="arm-content" id="armContent" style="display:none">
+
+    <div class="arm-items-col">
+      <div class="arm-items" id="armItems"></div>
+    </div>
+
+    <div class="arm-summary-col">
+      <div class="arm-summary">
+        <h3>Resumen del pedido</h3>
+
+        <div class="sum-rows" id="sumRows"></div>
+
+        <div class="sum-divider"></div>
+        <div class="sum-total-row">
+          <span>Total</span>
+          <span class="sum-total" id="sumTotal">$0</span>
+        </div>
+        <div class="sum-envio">
+          <span>Envío</span>
+          <span class="free-tag">GRATIS</span>
+        </div>
+
+        <a id="btnFinalizar" href="#" class="btn-main arm-btn-finalizar" target="_blank">
+          <span>Finalizar pedido</span>
+          <span>→</span>
+        </a>
+
+        <p class="arm-legal">Al hacer clic serás redirigido a WhatsApp para confirmar tu pedido y recibir los datos de pago.</p>
+
+        <a href="index.html#productos" class="btn-outline" style="text-align:center;justify-content:center">
+          + Agregar más prendas
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="armario.js"></script>
+<script src="productos.js"></script>
+<script src="armario-page.js"></script>
+</body>
+</html>

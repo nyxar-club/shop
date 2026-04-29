@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <title>NYXAR — Colección 2×1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="2x1.css"/>
+</head>
+<body class="page-2x1">
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner" style="grid-template-columns:auto 1fr auto;gap:1rem">
+    <a href="index.html" class="btn-back">← Volver</a>
+    <a href="index.html" class="nav-logo" style="justify-self:center">
+      <img src="assets/icono-ppal.png" alt="NYXAR"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-fallback" style="display:none">NYXAR</span>
+    </a>
+    <a href="armario.html" class="nav-armario">
+      🧺 Armario
+      <span class="armario-count" id="armarioBadge">0</span>
+    </a>
+  </div>
+</nav>
+
+<main class="x2-main">
+
+  <!-- ENCABEZADO -->
+  <div class="x2-header">
+    <p class="eyebrow">Oferta especial</p>
+    <h1>Colección <span class="acc">2×1</span></h1>
+    <p class="x2-sub">Dos camisas — <strong>$25.99</strong> + envío $4.67</p>
+  </div>
+
+  <!-- ══════ PASO 1: COLOR DE CAMISAS ══════ -->
+  <div class="x2-step">
+    <div class="step-label"><span class="step-num">1</span>Elige el color de tus 2 camisas</div>
+    <div class="x2-2col">
+
+      <!-- Camisa A -->
+      <div class="shirt-picker">
+        <p class="shirt-ttl">Camisa A</p>
+        <div class="color-picker-grid" id="colorA">
+          <button class="cpick active" data-color="Negro"  data-hex="#111111" onclick="pickColor('A','Negro','#111111',this)">
+            <span class="cp-dot" style="background:#111111"></span>Negro
+          </button>
+          <button class="cpick" data-color="Blanco" data-hex="#f0f0f0" onclick="pickColor('A','Blanco','#f0f0f0',this)">
+            <span class="cp-dot" style="background:#f0f0f0;border:1px solid #ccc"></span>Blanco
+          </button>
+          <button class="cpick" data-color="Rosa"   data-hex="#f9a8c9" onclick="pickColor('A','Rosa','#f9a8c9',this)">
+            <span class="cp-dot" style="background:#f9a8c9"></span>Rosa
+          </button>
+          <button class="cpick" data-color="Gris"   data-hex="#808080" onclick="pickColor('A','Gris','#808080',this)">
+            <span class="cp-dot" style="background:#808080"></span>Gris
+          </button>
+          <button class="cpick" data-color="Beige"  data-hex="#d6c3a3" onclick="pickColor('A','Beige','#d6c3a3',this)">
+            <span class="cp-dot" style="background:#d6c3a3"></span>Beige
+          </button>
+        </div>
+        <!-- Previsualización color camisa A -->
+        <div class="shirt-color-preview">
+          <div class="shirt-preview-wrap">
+            <p class="preview-side-lbl">Frente</p>
+            <img class="shirt-color-img" id="colorImgAF" src="" alt="Camisa A frente"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="shirt-silhouette-wrap" id="silAF" style="display:none">
+              <div class="shirt-silhouette" id="silAFill" style="background:#111111"></div>
+            </div>
+          </div>
+          <div class="shirt-preview-wrap">
+            <p class="preview-side-lbl">Espalda</p>
+            <img class="shirt-color-img" id="colorImgAB" src="" alt="Camisa A espalda"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="shirt-silhouette-wrap" id="silAB" style="display:none">
+              <div class="shirt-silhouette" id="silABFill" style="background:#111111"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Camisa B -->
+      <div class="shirt-picker">
+        <p class="shirt-ttl">Camisa B</p>
+        <div class="color-picker-grid" id="colorB">
+          <button class="cpick" data-color="Negro"  data-hex="#111111" onclick="pickColor('B','Negro','#111111',this)">
+            <span class="cp-dot" style="background:#111111"></span>Negro
+          </button>
+          <button class="cpick active" data-color="Blanco" data-hex="#f0f0f0" onclick="pickColor('B','Blanco','#f0f0f0',this)">
+            <span class="cp-dot" style="background:#f0f0f0;border:1px solid #ccc"></span>Blanco
+          </button>
+          <button class="cpick" data-color="Rosa"   data-hex="#f9a8c9" onclick="pickColor('B','Rosa','#f9a8c9',this)">
+            <span class="cp-dot" style="background:#f9a8c9"></span>Rosa
+          </button>
+          <button class="cpick" data-color="Gris"   data-hex="#808080" onclick="pickColor('B','Gris','#808080',this)">
+            <span class="cp-dot" style="background:#808080"></span>Gris
+          </button>
+          <button class="cpick" data-color="Beige"  data-hex="#d6c3a3" onclick="pickColor('B','Beige','#d6c3a3',this)">
+            <span class="cp-dot" style="background:#d6c3a3"></span>Beige
+          </button>
+        </div>
+        <div class="shirt-color-preview">
+          <div class="shirt-preview-wrap">
+            <p class="preview-side-lbl">Frente</p>
+            <img class="shirt-color-img" id="colorImgBF" src="" alt="Camisa B frente"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="shirt-silhouette-wrap" id="silBF" style="display:none">
+              <div class="shirt-silhouette" id="silBFFill" style="background:#f0f0f0;border:1px solid #ccc"></div>
+            </div>
+          </div>
+          <div class="shirt-preview-wrap">
+            <p class="preview-side-lbl">Espalda</p>
+            <img class="shirt-color-img" id="colorImgBB" src="" alt="Camisa B espalda"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="shirt-silhouette-wrap" id="silBB" style="display:none">
+              <div class="shirt-silhouette" id="silBBFill" style="background:#f0f0f0;border:1px solid #ccc"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin x2-2col paso1 -->
+  </div>
+
+  <!-- ══════ PASO 1B: TALLA ══════ -->
+  <div class="x2-step">
+    <div class="step-label"><span class="step-num">1b</span>Elige la talla de cada camisa</div>
+    <div class="x2-2col">
+      <div>
+        <p class="shirt-ttl">Talla Camisa A</p>
+        <div class="chips-talla" id="tallaA">
+          <button class="tchip active" onclick="pickTalla('A','XS',this)">XS</button>
+          <button class="tchip" onclick="pickTalla('A','S',this)">S</button>
+          <button class="tchip" onclick="pickTalla('A','M',this)">M</button>
+          <button class="tchip" onclick="pickTalla('A','L',this)">L</button>
+          <button class="tchip" onclick="pickTalla('A','XL',this)">XL</button>
+        </div>
+      </div>
+      <div>
+        <p class="shirt-ttl">Talla Camisa B</p>
+        <div class="chips-talla" id="tallaB">
+          <button class="tchip active" onclick="pickTalla('B','XS',this)">XS</button>
+          <button class="tchip" onclick="pickTalla('B','S',this)">S</button>
+          <button class="tchip" onclick="pickTalla('B','M',this)">M</button>
+          <button class="tchip" onclick="pickTalla('B','L',this)">L</button>
+          <button class="tchip" onclick="pickTalla('B','XL',this)">XL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ PASO 1C: CORTE ══════ -->
+  <div class="x2-step">
+    <div class="step-label"><span class="step-num">1c</span>Elige el corte de cada camisa</div>
+    <div class="x2-2col">
+      <div>
+        <p class="shirt-ttl">Corte Camisa A</p>
+        <div class="chips-talla" id="corteA">
+          <button class="tchip active" onclick="pickCorte('A','Regular',this)">Regular</button>
+          <button class="tchip" onclick="pickCorte('A','Oversize',this)">Oversize</button>
+          <button class="tchip" onclick="pickCorte('A','Boxy',this)">Boxy</button>
+        </div>
+      </div>
+      <div>
+        <p class="shirt-ttl">Corte Camisa B</p>
+        <div class="chips-talla" id="corteB">
+          <button class="tchip active" onclick="pickCorte('B','Regular',this)">Regular</button>
+          <button class="tchip" onclick="pickCorte('B','Oversize',this)">Oversize</button>
+          <button class="tchip" onclick="pickCorte('B','Boxy',this)">Boxy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ PASO 2: DISEÑO (A y B por separado, con frente/espalda) ══════ -->
+  <div class="x2-step">
+    <div class="step-label"><span class="step-num">2</span>Elige el diseño de cada camisa</div>
+    <div class="x2-2col">
+
+      <!-- Diseño Camisa A -->
+      <div>
+        <p class="shirt-ttl">Diseño Camisa A</p>
+        <div class="design-options" id="designOptionsA">
+          <button class="design-opt active" data-d="street" onclick="pickDesign('A','street',this)">
+            <div class="design-previews">
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Frente</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/street-frente.webp" alt="Street frente"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Espalda</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/street-espalda.webp" alt="Street espalda"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+            </div>
+            <span class="design-name">Street</span>
+          </button>
+          <button class="design-opt" data-d="sweet" onclick="pickDesign('A','sweet',this)">
+            <div class="design-previews">
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Frente</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/sweet-frente.webp" alt="Sweet frente"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Espalda</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/sweet-espalda.webp" alt="Sweet espalda"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+            </div>
+            <span class="design-name">Sweet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Diseño Camisa B -->
+      <div>
+        <p class="shirt-ttl">Diseño Camisa B</p>
+        <div class="design-options" id="designOptionsB">
+          <button class="design-opt active" data-d="street" onclick="pickDesign('B','street',this)">
+            <div class="design-previews">
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Frente</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/street-frente.webp" alt="Street frente"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Espalda</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/street-espalda.webp" alt="Street espalda"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+            </div>
+            <span class="design-name">Street</span>
+          </button>
+          <button class="design-opt" data-d="sweet" onclick="pickDesign('B','sweet',this)">
+            <div class="design-previews">
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Frente</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/sweet-frente.webp" alt="Sweet frente"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+              <div class="design-preview-item">
+                <span class="design-side-lbl">Espalda</span>
+                <div class="design-img-wrap">
+                  <img src="assets/2x1/sweet-espalda.webp" alt="Sweet espalda"
+                       onerror="this.parentElement.classList.add('no-img')"/>
+                </div>
+              </div>
+            </div>
+            <span class="design-name">Sweet</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════ PASO 3: COLOR DEL DISEÑO ══════ -->
+  <div class="x2-step">
+    <div class="step-label"><span class="step-num">3</span>Elige el color del diseño en cada camisa</div>
+    <p class="step-hint">Cada camisa puede tener un color de diseño diferente.</p>
+    <div class="x2-2col">
+      <div>
+        <p class="shirt-ttl">Color diseño — Camisa A</p>
+        <div class="design-color-grid" id="dcA"></div>
+        <p class="dc-selected" id="dcAName">Blanco</p>
+      </div>
+      <div>
+        <p class="shirt-ttl">Color diseño — Camisa B</p>
+        <div class="design-color-grid" id="dcB"></div>
+        <p class="dc-selected" id="dcBName">Negro</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ VISTAS FINALES + RESUMEN ══════ -->
+  <div class="x2-final">
+
+    <!-- Vistas de camisas -->
+    <div class="x2-vistas">
+
+      <!-- Bloque Camisa A -->
+      <div class="vista-bloque">
+        <p class="shirt-ttl">Camisa A — <span id="labelA">Negro · Regular · Street</span></p>
+        <div class="vista-sides">
+          <div class="vista-side">
+            <p class="preview-side-lbl">Frente</p>
+            <div class="vista-canvas" id="vistaAF">
+              <img class="vista-shirt-img" id="vShirtAF" src="" alt=""/>
+              <div class="vista-design-overlay" id="vDesignAF"></div>
+            </div>
+          </div>
+          <div class="vista-side">
+            <p class="preview-side-lbl">Espalda</p>
+            <div class="vista-canvas" id="vistaAB">
+              <img class="vista-shirt-img" id="vShirtAB" src="" alt=""/>
+              <div class="vista-design-overlay" id="vDesignAB"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloque Camisa B -->
+      <div class="vista-bloque">
+        <p class="shirt-ttl">Camisa B — <span id="labelB">Blanco · Regular · Street</span></p>
+        <div class="vista-sides">
+          <div class="vista-side">
+            <p class="preview-side-lbl">Frente</p>
+            <div class="vista-canvas" id="vistaBF">
+              <img class="vista-shirt-img" id="vShirtBF" src="" alt=""/>
+              <div class="vista-design-overlay" id="vDesignBF"></div>
+            </div>
+          </div>
+          <div class="vista-side">
+            <p class="preview-side-lbl">Espalda</p>
+            <div class="vista-canvas" id="vistaBB">
+              <img class="vista-shirt-img" id="vShirtBB" src="" alt=""/>
+              <div class="vista-design-overlay" id="vDesignBB"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin x2-vistas -->
+
+    <!-- Caja resumen y pago -->
+    <div class="x2-order-box">
+      <h3>Resumen</h3>
+      <div class="x2-row"><span>2 camisas (2×1)</span><span>$25.99</span></div>
+      <div class="x2-row"><span>Envío</span><span>$4.67</span></div>
+      <div class="x2-row x2-prem-row" id="x2PremRow" style="display:none">
+        <span>Paquete Premium</span><span>+$2.99</span>
+      </div>
+      <div class="x2-divider"></div>
+      <div class="x2-row x2-total"><span>Total</span><span id="x2Total">$30.66</span></div>
+
+      <!-- Premium -->
+      <div class="premium-box" style="margin-top:.9rem">
+        <div class="prem-left">
+          <div class="prem-icon">
+            <img src="assets/icono-premium.png" alt="Premium"
+                 onerror="this.style.display='none';this.parentElement.innerHTML='✦'"/>
+          </div>
+          <div>
+            <strong>Paquete Premium</strong>
+            <small>Caja misteriosa + packaging exclusivo</small>
+          </div>
+        </div>
+        <button class="btn-prem" id="x2BtnPrem" onclick="toggle2x1Premium()">+ $2.99</button>
+      </div>
+
+      <a id="x2BtnPagar" href="#" class="btn-main" target="_blank"
+         style="margin-top:.9rem;display:flex;justify-content:space-between">
+        <span>Pagar ahora</span><span>→</span>
+      </a>
+      <p style="margin-top:.6rem;font-size:.64rem;color:var(--muted);text-align:center">
+        Serás redirigido a WhatsApp para confirmar tu pedido.
+      </p>
+    </div>
+
+  </div><!-- fin x2-final -->
+
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="armario.js"></script>
+<script src="productos.js"></script>
+<script src="2x1.js"></script>
+</body>
+</html>
