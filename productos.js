@@ -204,7 +204,8 @@ const PRODUCTOS = [
       { nombre:"Negro",  hex:"#111111", imagenes:[
         "assets/productos/basica/thenyxarclub-negro-1.webp",
         "assets/productos/basica/thenyxarclub-negro-2.webp",
-        "assets/productos/basica/thenyxarclub-negro-3.webp",
+		"assets/productos/basica/thenyxarclub-negro-3.webp",
+        "assets/productos/basica/thenyxarclub-negro-4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
