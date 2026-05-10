@@ -47,7 +47,7 @@ const STORE_CONFIG = {
   estelarXLExtra:    1.00,
   premiumExtra:      2.99,
   envio2x1:          4.67,
-  whatsapp:          "50300000000",
+  whatsapp:          "50376925839",
   proximoLanzamiento:"2025-05-31T18:30:00",
   dropActivo: {
     titulo:      "Colección Básica",
