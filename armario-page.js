@@ -123,7 +123,7 @@ function buildFinalizarBtn(items) {
   var total = descuentoActivo
     ? parseFloat((totalBase * (1 - DESCUENTO_PORCIENTO / 100)).toFixed(2))
     : totalBase;
-  var wa    = (typeof STORE_CONFIG !== 'undefined') ? STORE_CONFIG.whatsapp : '50300000000';
+  var wa    = (typeof STORE_CONFIG !== 'undefined') ? STORE_CONFIG.whatsapp : '50376925839';
 
   /* ── LINK DE PAGO ──────────────────────────────────────────
      Cuando tengas el link, sustituye estas líneas por:
