@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <title>NYXAR — Confirmar pedido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Página ── */
+    .pedido-page { background: var(--bg2); min-height: 100vh; }
+    .pedido-main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + 2rem) clamp(1rem,4vw,2rem) 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Encabezado ── */
+    .pedido-header { margin-bottom: .5rem; }
+    .pedido-header h1 { font-size: clamp(1.6rem,3.5vw,2.2rem); font-weight: 700; }
+
+    /* ── Resumen de prendas ── */
+    .resumen-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: var(--sh);
+    }
+    .resumen-box h3 {
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+    .resumen-items { display: flex; flex-direction: column; gap: .5rem; }
+    .resumen-item {
+      display: flex; justify-content: space-between;
+      font-size: .8rem; padding: .3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .resumen-item:last-child { border-bottom: none; }
+    .resumen-item-name { color: var(--text2); }
+    .resumen-item-price { font-weight: 600; color: var(--acc); }
+    .resumen-total {
+      display: flex; justify-content: space-between;
+      font-weight: 700; font-size: .95rem;
+      margin-top: .8rem; padding-top: .8rem;
+      border-top: 1px solid var(--border);
+    }
+    .resumen-total-monto { color: var(--acc); font-size: 1.1rem; }
+
+    /* ── Sección / card ── */
+    .pedido-section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem;
+      box-shadow: var(--sh);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .section-title {
+      display: flex; align-items: center; gap: .7rem;
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text2);
+    }
+    .section-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--acc); color: #fff;
+      font-size: .68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── Opciones de entrega ── */
+    .entrega-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media(max-width:480px){ .entrega-opts { grid-template-columns: 1fr; } }
+    .entrega-opt {
+      border: 2px solid var(--border);
+      border-radius: 12px; padding: 1rem;
+      cursor: pointer; transition: var(--t);
+      display: flex; flex-direction: column; gap: .3rem;
+      background: var(--bg2);
+    }
+    .entrega-opt:hover { border-color: var(--acc3); }
+    .entrega-opt.active { border-color: var(--acc); background: var(--acc-lt); }
+    .entrega-opt-ico { font-size: 1.4rem; }
+    .entrega-opt-name { font-size: .82rem; font-weight: 700; }
+    .entrega-opt-desc { font-size: .7rem; color: var(--muted); }
+    .entrega-opt.active .entrega-opt-name { color: var(--acc); }
+
+    /* ── Formulario ── */
+    .form-group { display: flex; flex-direction: column; gap: .35rem; }
+    .form-label {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-label span { color: #e53935; }
+    .form-input, .form-select {
+      background: var(--bg2);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .65rem .9rem;
+      font-family: var(--font);
+      font-size: .82rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s ease;
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus { border-color: var(--acc); background: #fff; }
+    .form-input::placeholder { color: var(--muted2); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media(max-width:500px){ .form-row { grid-template-columns: 1fr; } }
+    .form-note {
+      font-size: .7rem; color: var(--muted);
+      background: var(--bg3);
+      border-left: 3px solid var(--acc);
+      padding: .6rem .9rem;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.6;
+    }
+    .form-note strong { color: var(--text2); }
+
+    /* ── Punto de encuentro ── */
+    #secCentrica, #secDomicilio { display: none; }
+
+    /* ── Métodos de pago ── */
+    .pago-opts { display: flex; flex-direction: column; gap: .7rem; }
+    .pago-opt {
+      border: 2px solid var(--border);
+      border-radius: 12px; padding: 1rem 1.2rem;
+      cursor: pointer; transition: var(--t);
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--bg2);
+    }
+    .pago-opt:hover { border-color: var(--acc3); }
+    .pago-opt.active { border-color: var(--acc); background: var(--acc-lt); }
+    .pago-opt-ico { font-size: 1.5rem; flex-shrink: 0; }
+    .pago-opt-info { flex: 1; }
+    .pago-opt-name { font-size: .84rem; font-weight: 700; }
+    .pago-opt.active .pago-opt-name { color: var(--acc); }
+    .pago-opt-desc { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
+    .pago-radio {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0; transition: var(--t);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pago-opt.active .pago-radio {
+      border-color: var(--acc);
+      background: var(--acc);
+    }
+    .pago-opt.active .pago-radio::after {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%; background: #fff;
+    }
+
+    /* Detalle de cada método */
+    .pago-detalle {
+      display: none;
+      flex-direction: column;
+      gap: .8rem;
+      padding: 1rem 1.2rem;
+      background: var(--bg3);
+      border-radius: 10px;
+      font-size: .8rem;
+    }
+    .pago-detalle.visible { display: flex; }
+    .pago-detalle-titulo {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: .2rem;
+    }
+    .banco-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .9rem 1rem;
+    }
+    .banco-nombre { font-weight: 700; font-size: .84rem; margin-bottom: .5rem; color: var(--acc); }
+    .banco-dato { display: flex; justify-content: space-between; font-size: .76rem; padding: .2rem 0; border-bottom: 1px solid var(--border); }
+    .banco-dato:last-child { border-bottom: none; }
+    .banco-dato-lbl { color: var(--muted); }
+    .banco-dato-val { font-weight: 600; color: var(--text2); }
+    .pago-nota {
+      font-size: .72rem; color: var(--text2);
+      background: var(--acc-lt);
+      border: 1px solid var(--bv);
+      border-radius: 8px;
+      padding: .6rem .9rem;
+      line-height: 1.6;
+    }
+    .paypal-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: #0070ba; color: #fff;
+      padding: .55rem 1.1rem; border-radius: 8px;
+      font-size: .78rem; font-weight: 700;
+      text-decoration: none; transition: var(--t);
+      width: fit-content;
+    }
+    .paypal-link:hover { background: #005ea6; }
+
+    /* ── Botón confirmar ── */
+    .btn-confirmar {
+      width: 100%;
+      background: var(--acc);
+      color: #fff;
+      border: none;
+      border-radius: var(--r);
+      padding: .9rem 1.5rem;
+      font-family: var(--font);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--t);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-confirmar:hover { background: var(--acc2); transform: translateY(-2px); box-shadow: var(--shv); }
+    .btn-confirmar:disabled { background: var(--bg4); color: var(--muted); cursor: default; transform: none; box-shadow: none; }
+
+    /* ── Error de validación ── */
+    .form-error { font-size: .7rem; color: #c62828; margin-top: .2rem; display: none; }
+    .form-input.error, .form-select.error { border-color: #c62828; }
+
+    /* ── Toast ── */
+    .toast{position:fixed;bottom:1.8rem;left:50%;transform:translateX(-50%) translateY(14px);background:var(--acc);color:#fff;padding:.64rem 1.8rem;border-radius:30px;font-size:.74rem;font-weight:600;letter-spacing:.06em;opacity:0;pointer-events:none;transition:all .3s ease;z-index:999;white-space:nowrap}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  </style>
+</head>
+<body class="pedido-page">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner" style="grid-template-columns:auto 1fr auto;gap:1rem">
+    <a href="armario.html" class="btn-back">← Volver al armario</a>
+    <a href="index.html" class="nav-logo" style="justify-self:center">
+      <img src="assets/icono-ppal.png" alt="NYXAR"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-fallback" style="display:none">NYXAR</span>
+    </a>
+    <span style="min-width:80px"></span>
+  </div>
+</nav>
+
+<main class="pedido-main">
+
+  <!-- Encabezado -->
+  <div class="pedido-header">
+    <p class="eyebrow">Último paso</p>
+    <h1>Confirmar <span class="acc">pedido</span></h1>
+  </div>
+
+  <!-- Resumen del pedido -->
+  <div class="resumen-box">
+    <h3>Tu pedido</h3>
+    <div class="resumen-items" id="resumenItems"></div>
+    <div class="resumen-total">
+      <span>Total a pagar</span>
+      <span class="resumen-total-monto" id="resumenTotal">$0.00</span>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1 — Tipo de entrega -->
+  <div class="pedido-section">
+    <div class="section-title"><span class="section-num">1</span>Tipo de entrega</div>
+
+    <div class="entrega-opts">
+      <div class="entrega-opt active" id="optCentrica" onclick="setEntrega('centrica')">
+        <span class="entrega-opt-ico">🏙️</span>
+        <span class="entrega-opt-name">Zona céntrica</span>
+        <span class="entrega-opt-desc">San Salvador — punto de encuentro</span>
+      </div>
+      <div class="entrega-opt" id="optDomicilio" onclick="setEntrega('domicilio')">
+        <span class="entrega-opt-ico">🚚</span>
+        <span class="entrega-opt-name">Entrega a domicilio</span>
+        <span class="entrega-opt-desc">Te llevamos hasta tu puerta</span>
+      </div>
+    </div>
+
+    <!-- Zona céntrica -->
+    <div id="secCentrica">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="form-group">
+          <label class="form-label">Punto de encuentro <span>*</span></label>
+          <select class="form-select" id="puntoCentrica">
+            <option value="">Selecciona un punto</option>
+            <option value="Plaza Mundo Soyapango">Plaza Mundo — Soyapango</option>
+            <option value="Metrocentro San Salvador">Metrocentro — San Salvador</option>
+            <option value="Centro Histórico San Salvador">Centro Histórico — San Salvador</option>
+          </select>
+          <span class="form-error" id="errPunto">Selecciona un punto de encuentro.</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Día de entrega <span>*</span></label>
+            <select class="form-select" id="diaCentrica">
+              <option value="">Selecciona el día</option>
+              <option>Lunes</option>
+              <option>Martes</option>
+              <option>Miércoles</option>
+              <option>Jueves</option>
+              <option>Viernes</option>
+              <option>Sábado</option>
+              <option>Domingo</option>
+            </select>
+            <span class="form-error" id="errDia">Selecciona el día.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hora de entrega <span>*</span></label>
+            <select class="form-select" id="horaCentrica">
+              <option value="">Selecciona la hora</option>
+              <option value="9:00 AM">9:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="1:00 PM">1:00 PM</option>
+              <option value="2:00 PM">2:00 PM</option>
+            </select>
+            <span class="form-error" id="errHora">Selecciona la hora.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tu WhatsApp <span>*</span></label>
+          <input class="form-input" id="waCentrica" type="tel"
+                 placeholder="Ej: 76901234" maxlength="20"/>
+          <span class="form-error" id="errWaCentrica">Ingresa tu número de WhatsApp.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entrega a domicilio -->
+    <div id="secDomicilio">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Departamento <span>*</span></label>
+            <select class="form-select" id="departamento">
+              <option value="">Selecciona</option>
+              <option>Ahuachapán</option><option>Cabañas</option><option>Chalatenango</option>
+              <option>Cuscatlán</option><option>La Libertad</option><option>La Paz</option>
+              <option>La Unión</option><option>Morazán</option><option>San Miguel</option>
+              <option>San Salvador</option><option>San Vicente</option><option>Santa Ana</option>
+              <option>Sonsonate</option><option>Usulután</option>
+            </select>
+            <span class="form-error" id="errDpto">Selecciona el departamento.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Municipio <span>*</span></label>
+            <input class="form-input" id="municipio" type="text" placeholder="Ej: Soyapango"/>
+            <span class="form-error" id="errMunicipio">Ingresa el municipio.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Dirección exacta <span>*</span></label>
+          <input class="form-input" id="direccion" type="text"
+                 placeholder="Calle, colonia, número de casa..."/>
+          <span class="form-error" id="errDireccion">Ingresa la dirección completa.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Referencia <span>*</span></label>
+          <input class="form-input" id="referencia" type="text"
+                 placeholder="Ej: Frente al parque, casa de color azul..."/>
+          <span class="form-error" id="errReferencia">Ingresa una referencia.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tu WhatsApp <span>*</span></label>
+          <input class="form-input" id="waDomicilio" type="tel"
+                 placeholder="Ej: 76901234" maxlength="20"/>
+          <span class="form-error" id="errWaDomicilio">Ingresa tu número de WhatsApp.</span>
+        </div>
+        <div class="form-note">
+          ⚠️ <strong>Importante:</strong> El repartidor no tiene hora fija de llegada. La entrega puede ser durante la mañana o la tarde. Mantente pendiente a tu WhatsApp ya que te contactaremos antes de llegar.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECCIÓN 2 — Método de pago -->
+  <div class="pedido-section">
+    <div class="section-title"><span class="section-num">2</span>Método de pago</div>
+
+    <div class="pago-opts">
+
+      <!-- Opción 1: Transferencia -->
+      <div class="pago-opt active" id="pagoTransferencia" onclick="setPago('transferencia')">
+        <span class="pago-opt-ico">🏦</span>
+        <div class="pago-opt-info">
+          <div class="pago-opt-name">Transferencia bancaria</div>
+          <div class="pago-opt-desc">Cuscatlán o Agrícola — sin comisiones</div>
+        </div>
+        <div class="pago-radio"></div>
+      </div>
+
+      <!-- Opción 2: PayPal -->
+      <div class="pago-opt" id="pagoPaypal" onclick="setPago('paypal')">
+        <span class="pago-opt-ico">💳</span>
+        <div class="pago-opt-info">
+          <div class="pago-opt-name">PayPal</div>
+          <div class="pago-opt-desc">Pago con tarjeta o cuenta PayPal</div>
+        </div>
+        <div class="pago-radio"></div>
+      </div>
+
+      <!-- Opción 3: Link de pago por WhatsApp -->
+      <div class="pago-opt" id="pagoLink" onclick="setPago('link')">
+        <span class="pago-opt-ico">🔗</span>
+        <div class="pago-opt-info">
+          <div class="pago-opt-name">Link de pago (NIU)</div>
+          <div class="pago-opt-desc">Te enviamos el link directo a tu WhatsApp</div>
+        </div>
+        <div class="pago-radio"></div>
+      </div>
+
+    </div>
+
+    <!-- Detalle: Transferencia -->
+    <div class="pago-detalle visible" id="detalleTransferencia">
+      <p class="pago-detalle-titulo">Datos bancarios</p>
+      <div class="banco-card">
+        <div class="banco-nombre">🏦 Banco Cuscatlán</div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Titular</span><span class="banco-dato-val">Williams Oswaldo Ramos Pérez</span></div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Tipo de cuenta</span><span class="banco-dato-val">Cuenta de Ahorro</span></div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Número</span><span class="banco-dato-val">404411000017253</span></div>
+      </div>
+      <div class="banco-card">
+        <div class="banco-nombre">🏦 Banco Agrícola</div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Titular</span><span class="banco-dato-val">Williams Oswaldo Ramos Pérez</span></div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Tipo de cuenta</span><span class="banco-dato-val">Cuenta de Ahorro</span></div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Número</span><span class="banco-dato-val">3790967209</span></div>
+      </div>
+      <div class="pago-nota">
+        📸 Una vez realizada la transferencia, envía tu comprobante de pago a nuestro Instagram <strong>@nyxarclub</strong>
+      </div>
+    </div>
+
+    <!-- Detalle: PayPal -->
+    <div class="pago-detalle" id="detallePaypal">
+      <p class="pago-detalle-titulo">Pagar con PayPal</p>
+      <div class="banco-card">
+        <div class="banco-dato"><span class="banco-dato-lbl">Correo</span><span class="banco-dato-val">1999.worp@gmail.com</span></div>
+        <div class="banco-dato"><span class="banco-dato-lbl">Usuario</span><span class="banco-dato-val">@WilliamsRamos1</span></div>
+      </div>
+      <a class="paypal-link" href="https://www.paypal.me/WilliamsRamos1" target="_blank">
+        Ir a PayPal →
+      </a>
+      <div class="pago-nota">
+        📸 Una vez realizado el pago, envía tu comprobante a nuestro Instagram <strong>@nyxarclub</strong>
+      </div>
+    </div>
+
+    <!-- Detalle: Link de pago NIU -->
+    <div class="pago-detalle" id="detalleLink">
+      <p class="pago-detalle-titulo">Link de pago por WhatsApp</p>
+      <div class="form-group">
+        <label class="form-label">Tu WhatsApp para enviarte el link <span style="color:#e53935">*</span></label>
+        <input class="form-input" id="waLink" type="tel"
+               placeholder="Ej: 76901234" maxlength="20"/>
+        <span class="form-error" id="errWaLink">Ingresa tu número de WhatsApp.</span>
+      </div>
+      <div class="pago-nota">
+        Una vez confirmes tu pedido, te enviaremos el link de pago NIU directamente a tu WhatsApp. El pedido se procesa al recibir confirmación de pago.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Botón confirmar -->
+  <button class="btn-confirmar" id="btnConfirmar" onclick="confirmarPedido()">
+    <span>Confirmar pedido</span>
+    <span>→</span>
+  </button>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- Scripts -->
+<script src="armario.js"></script>
+<script src="productos.js"></script>
+<script>
+'use strict';
+
+// ── Estado ──────────────────────────────
+var tipoEntrega  = 'centrica';
+var tipoPago     = 'transferencia';
+var totalPedido  = 0;
+var descuentoAct = false;
+var descuentoPct = 0;
+
+// ── Init ────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('scroll', function() {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  cargarResumen();
+  setEntrega('centrica');
+  setPago('transferencia');
+});
+
+// ── Cargar resumen desde localStorage ───
+function cargarResumen() {
+  var items = Armario.get();
+  var container = document.getElementById('resumenItems');
+  var totalEl   = document.getElementById('resumenTotal');
+
+  if (!items.length) {
+    // Si no hay prendas redirigir al armario
+    window.location.href = 'armario.html';
+    return;
+  }
+
+  // Leer descuento desde sessionStorage (si venía del armario con descuento)
+  var descData = sessionStorage.getItem('nyxar_descuento');
+  if (descData) {
+    try {
+      var d = JSON.parse(descData);
+      descuentoAct = d.activo || false;
+      descuentoPct = d.porciento || 0;
+    } catch(e) {}
+  }
+
+  container.innerHTML = '';
+  items.forEach(function(item) {
+    var row = document.createElement('div');
+    row.className = 'resumen-item';
+    var detalle = [];
+    if (item.talla && item.talla !== '—') detalle.push('Talla ' + item.talla);
+    if (item.color && item.color !== 'Único') detalle.push(item.color);
+    if (item.premium) detalle.push('Premium');
+    row.innerHTML =
+      '<span class="resumen-item-name">' + item.nombre +
+        (detalle.length ? ' · <small style="color:var(--muted)">' + detalle.join(' · ') + '</small>' : '') +
+      '</span>' +
+      '<span class="resumen-item-price">$' + parseFloat(item.precioFinal).toFixed(2) + '</span>';
+    container.appendChild(row);
+  });
+
+  var base = Armario.total();
+  totalPedido = descuentoAct
+    ? parseFloat((base * (1 - descuentoPct / 100)).toFixed(2))
+    : base;
+
+  totalEl.textContent = '$' + totalPedido.toFixed(2) +
+    (descuentoAct ? ' (-' + descuentoPct + '%)' : '');
+}
+
+// ── Tipo de entrega ──────────────────────
+function setEntrega(tipo) {
+  tipoEntrega = tipo;
+  document.getElementById('optCentrica').classList.toggle('active', tipo === 'centrica');
+  document.getElementById('optDomicilio').classList.toggle('active', tipo === 'domicilio');
+  document.getElementById('secCentrica').style.display  = tipo === 'centrica'  ? 'block' : 'none';
+  document.getElementById('secDomicilio').style.display = tipo === 'domicilio' ? 'block' : 'none';
+}
+
+// ── Método de pago ───────────────────────
+function setPago(tipo) {
+  tipoPago = tipo;
+  ['transferencia','paypal','link'].forEach(function(t) {
+    document.getElementById('pago' + cap(t)).classList.toggle('active', t === tipo);
+    document.getElementById('detalle' + cap(t)).classList.toggle('visible', t === tipo);
+  });
+}
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+// ── Validación ───────────────────────────
+function validar() {
+  var ok = true;
+
+  function check(id, errId, condicion) {
+    var el  = document.getElementById(id);
+    var err = document.getElementById(errId);
+    if (!el) return;
+    var falla = condicion(el.value);
+    el.classList.toggle('error', falla);
+    if (err) err.style.display = falla ? 'block' : 'none';
+    if (falla) ok = false;
+  }
+
+  // Limpiar todos los errores antes
+  document.querySelectorAll('.form-error').forEach(function(e) { e.style.display = 'none'; });
+  document.querySelectorAll('.form-input,.form-select').forEach(function(e) { e.classList.remove('error'); });
+
+  if (tipoEntrega === 'centrica') {
+    check('puntoCentrica', 'errPunto',      function(v) { return !v; });
+    check('diaCentrica',   'errDia',        function(v) { return !v; });
+    check('horaCentrica',  'errHora',       function(v) { return !v; });
+    check('waCentrica',    'errWaCentrica', function(v) { return v.trim().length < 7; });
+  } else {
+    check('departamento', 'errDpto',       function(v) { return !v; });
+    check('municipio',    'errMunicipio',  function(v) { return v.trim().length < 2; });
+    check('direccion',    'errDireccion',  function(v) { return v.trim().length < 5; });
+    check('referencia',   'errReferencia', function(v) { return v.trim().length < 3; });
+    check('waDomicilio',  'errWaDomicilio',function(v) { return v.trim().length < 7; });
+  }
+
+  if (tipoPago === 'link') {
+    check('waLink', 'errWaLink', function(v) { return v.trim().length < 7; });
+  }
+
+  return ok;
+}
+
+// ── Confirmar pedido ─────────────────────
+function confirmarPedido() {
+  if (!validar()) {
+    showToast('Completa todos los campos obligatorios');
+    return;
+  }
+
+  var btn = document.getElementById('btnConfirmar');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = 'Enviando...';
+
+  var items = Armario.get();
+  var wa    = (typeof STORE_CONFIG !== 'undefined') ? STORE_CONFIG.whatsapp : '76925839';
+
+  // ── Construir datos de entrega ──
+  var datosEntrega = '';
+  if (tipoEntrega === 'centrica') {
+    datosEntrega =
+      '📍 *Tipo:* Zona Céntrica\n' +
+      '🏢 *Punto:* ' + document.getElementById('puntoCentrica').value + '\n' +
+      '📅 *Día:* '   + document.getElementById('diaCentrica').value + '\n' +
+      '⏰ *Hora:* '  + document.getElementById('horaCentrica').value + '\n' +
+      '📱 *WhatsApp cliente:* ' + document.getElementById('waCentrica').value;
+  } else {
+    datosEntrega =
+      '📍 *Tipo:* Entrega a domicilio\n' +
+      '🗺️ *Departamento:* ' + document.getElementById('departamento').value + '\n' +
+      '🏘️ *Municipio:* '    + document.getElementById('municipio').value + '\n' +
+      '🏠 *Dirección:* '    + document.getElementById('direccion').value + '\n' +
+      '📌 *Referencia:* '   + document.getElementById('referencia').value + '\n' +
+      '📱 *WhatsApp cliente:* ' + document.getElementById('waDomicilio').value;
+  }
+
+  // ── Construir datos de pago ──
+  var datosPago = '';
+  if (tipoPago === 'transferencia') {
+    datosPago = '💳 *Pago:* Transferencia bancaria';
+  } else if (tipoPago === 'paypal') {
+    datosPago = '💳 *Pago:* PayPal (@WilliamsRamos1)';
+  } else {
+    datosPago = '💳 *Pago:* Link NIU — enviar a WhatsApp: ' + document.getElementById('waLink').value;
+  }
+
+  // ── Armar mensaje WhatsApp ──
+  var lineas = ['🖤 *NUEVO PEDIDO NYXAR*', ''];
+
+  items.forEach(function(item, i) {
+    lineas.push('*' + (i+1) + '. ' + item.nombre + '*');
+    if (item.color && item.color !== 'Único') lineas.push('   🎨 ' + item.color);
+    if (item.talla && item.talla !== '—')     lineas.push('   📏 Talla ' + item.talla);
+    if (item.corte && item.corte !== '—')     lineas.push('   ✂️ ' + item.corte);
+    if (item.premium)                          lineas.push('   ✦ Paquete Premium');
+    lineas.push('   💰 $' + parseFloat(item.precioFinal).toFixed(2));
+  });
+
+  lineas.push('');
+  lineas.push('── ENTREGA ──');
+  lineas.push(datosEntrega);
+  lineas.push('');
+  lineas.push('── PAGO ──');
+  lineas.push(datosPago);
+  lineas.push('');
+  if (descuentoAct) lineas.push('🏷️ Descuento ' + descuentoPct + '% aplicado');
+  lineas.push('💳 *TOTAL: $' + totalPedido.toFixed(2) + '*');
+
+  // ── Enviar a Formspree ──
+  var formData = new FormData();
+  formData.append('_subject', 'Nuevo pedido NYXAR — $' + totalPedido.toFixed(2));
+
+  items.forEach(function(item, i) {
+    formData.append('Prenda ' + (i+1), item.nombre +
+      (item.color && item.color !== 'Único' ? ' | ' + item.color : '') +
+      (item.talla && item.talla !== '—'     ? ' | Talla ' + item.talla : '') +
+      (item.corte && item.corte !== '—'     ? ' | ' + item.corte : '') +
+      (item.premium ? ' | Premium' : '') +
+      ' | $' + parseFloat(item.precioFinal).toFixed(2));
+  });
+
+  if (descuentoAct) formData.append('Descuento', descuentoPct + '%');
+  formData.append('Total', '$' + totalPedido.toFixed(2));
+  formData.append('', '');
+  formData.append('Tipo de entrega', tipoEntrega === 'centrica' ? 'Zona Céntrica' : 'Domicilio');
+
+  if (tipoEntrega === 'centrica') {
+    formData.append('Punto de encuentro', document.getElementById('puntoCentrica').value);
+    formData.append('Día',  document.getElementById('diaCentrica').value);
+    formData.append('Hora', document.getElementById('horaCentrica').value);
+    formData.append('WhatsApp cliente', document.getElementById('waCentrica').value);
+  } else {
+    formData.append('Departamento', document.getElementById('departamento').value);
+    formData.append('Municipio',    document.getElementById('municipio').value);
+    formData.append('Dirección',    document.getElementById('direccion').value);
+    formData.append('Referencia',   document.getElementById('referencia').value);
+    formData.append('WhatsApp cliente', document.getElementById('waDomicilio').value);
+  }
+
+  formData.append('Método de pago',
+    tipoPago === 'transferencia' ? 'Transferencia bancaria' :
+    tipoPago === 'paypal'        ? 'PayPal'                 : 'Link NIU');
+
+  if (tipoPago === 'link') {
+    formData.append('WhatsApp para link', document.getElementById('waLink').value);
+  }
+
+  fetch('https://formspree.io/f/mlgzobpp', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(res) {
+    // Éxito o fallo de Formspree — en ambos casos abrimos WhatsApp
+    // El pedido queda registrado en WhatsApp siempre
+    finalizarPedido(wa, lineas);
+  })
+  .catch(function() {
+    // Si Formspree falla, igual abrimos WhatsApp
+    finalizarPedido(wa, lineas);
+  });
+}
+
+function finalizarPedido(wa, lineas) {
+  // Limpiar armario
+  localStorage.removeItem('nyxar_armario');
+  sessionStorage.removeItem('nyxar_descuento');
+
+  // Abrir WhatsApp
+  var url = 'https://wa.me/' + wa + '?text=' + encodeURIComponent(lineas.join('\n'));
+  window.open(url, '_blank');
+
+  // Redirigir a página de inicio
+  setTimeout(function() {
+    window.location.href = 'index.html';
+  }, 800);
+}
+
+// ── Toast ─────────────────────────────────
+var _tt;
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(_tt); _tt = setTimeout(function() { t.classList.remove('show'); }, 3000);
+}
+</script>
+</body>
+</html>
