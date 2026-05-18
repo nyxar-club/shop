@@ -182,7 +182,7 @@ function eliminar(uid) {
 // ─────────────────────────────────────────
 var CODIGOS_DESCUENTO = {
   'willy':  true,
-  'ded7':   true,
+  'ded':   true,
   'pupusa': true,
 };
 var DESCUENTO_PORCIENTO = 10;
