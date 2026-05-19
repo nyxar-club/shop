@@ -339,7 +339,7 @@ const PRODUCTOS = [
   },
 
   /* ═══════════════════════════════════
-     HALLOWNYX — todas agotadas
+     DBZNXR — todas agotadas
   ═══════════════════════════════════ */
   {
     id:301, nombre:"G***", coleccion:"***", categoria:"prendas",
@@ -499,16 +499,16 @@ const PRODUCTOS = [
     precio:25.99, precioTachado:30.00,
     colores:[
       { nombre:"Blanco", hex:"#f0f0f0", imagenes:[
-        "assets/productos/sivarx/sivarx-01-negro-1.webp",
-        "assets/productos/sivarx/sivarx-01-negro-2.webp",
-        "assets/productos/sivarx/sivarx-01-negro-3.webp",
-        "assets/productos/sivarx/sivarx-01-negro-4.webp",
+        "assets/productos/sivarx/sivarx-01-negro-!1.webp",
+        "assets/productos/sivarx/sivarx-01-negro-!2.webp",
+        "assets/productos/sivarx/sivarx-01-negro-!3.webp",
+        "assets/productos/sivarx/sivarx-01-negro-!4.webp",
       ]},
       { nombre:"Verde Musgo",  hex:"#535039", imagenes:[
-        "assets/productos/sivarx/sivarx-01-verde-1.webp",
-        "assets/productos/sivarx/sivarx-01-verde-2.webp",
-        "assets/productos/sivarx/sivarx-01-verde-3.webp",
-        "assets/productos/sivarx/sivarx-01-verde-4.webp",
+        "assets/productos/sivarx/sivarx-01-verde-!1.webp",
+        "assets/productos/sivarx/sivarx-01-verde-!2.webp",
+        "assets/productos/sivarx/sivarx-01-verde-!3.webp",
+        "assets/productos/sivarx/sivarx-01-verde-!4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -520,10 +520,10 @@ const PRODUCTOS = [
     precio:25.99, precioTachado:30.00,
     colores:[
       { nombre:"Blanco", hex:"#f0f0f0", imagenes:[
-        "assets/productos/sivarx/sivarx-02-negro-1.webp",
-        "assets/productos/sivarx/sivarx-02-negro-2.webp",
-        "assets/productos/sivarx/sivarx-02-negro-3.webp",
-        "assets/productos/sivarx/sivarx-02-negro-4.webp",
+        "assets/productos/sivarx/sivarx-02-negro-!1.webp",
+        "assets/productos/sivarx/sivarx-02-negro-!2.webp",
+        "assets/productos/sivarx/sivarx-02-negro-!3.webp",
+        "assets/productos/sivarx/sivarx-02-negro-!4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -535,10 +535,10 @@ const PRODUCTOS = [
     precio:25.99, precioTachado:30.00,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/sivarx/sivarx-03-negro-1.webp",
-        "assets/productos/sivarx/sivarx-03-negro-2.webp",
-        "assets/productos/sivarx/sivarx-03-negro-3.webp",
-        "assets/productos/sivarx/sivarx-03-negro-4.webp",
+        "assets/productos/sivarx/sivarx-03-negro-!1.webp",
+        "assets/productos/sivarx/sivarx-03-negro-!2.webp",
+        "assets/productos/sivarx/sivarx-03-negro-!3.webp",
+        "assets/productos/sivarx/sivarx-03-negro-!4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
