@@ -509,6 +509,7 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-01-verde-2.webp",
         "assets/productos/sivarx/sivarx-01-verde-3.webp",
         "assets/productos/sivarx/sivarx-01-verde-4.webp",
+      ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
