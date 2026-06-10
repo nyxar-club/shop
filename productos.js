@@ -512,7 +512,7 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-01-verde-4.webp",
       ]},
     ],
-	tallaExtra: true
+	tallaExtra: true,
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
     masVisto:true, destacado:true, disponible:true, linkPago:"#",
@@ -528,7 +528,7 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-02-negro-4.webp",
       ]},
     ],
-	tallaExtra: true
+	tallaExtra: true,
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
     masVisto:false, destacado:false, disponible:true, linkPago:"#",
@@ -544,7 +544,7 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-03-negro-4.webp",
       ]},
     ],
-	tallaExtra: true
+	tallaExtra: true,
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
     masVisto:false, destacado:false, disponible:true, linkPago:"#",
