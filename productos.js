@@ -497,7 +497,7 @@ const PRODUCTOS = [
   ═══════════════════════════════════ */
   {
     id:501, nombre:"Raíz 503", coleccion:"sivarx", categoria:"prendas",
-    precio:25.99, precioTachado:30.00,
+    precio:25.99, precioTachado:32.00,
     colores:[
       { nombre:"Blanco", hex:"#f0f0f0", imagenes:[
         "assets/productos/sivarx/sivarx-01-negro-1.webp",
@@ -512,13 +512,14 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-01-verde-4.webp",
       ]},
     ],
+	tallaExtra: true
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
     masVisto:true, destacado:true, disponible:true, linkPago:"#",
   },
   {
     id:502, nombre:"Codigo 503", coleccion:"sivarx", categoria:"prendas",
-    precio:25.99, precioTachado:30.00,
+    precio:25.99, precioTachado:32.00,
     colores:[
       { nombre:"Blanco", hex:"#f0f0f0", imagenes:[
         "assets/productos/sivarx/sivarx-02-negro-1.webp",
@@ -527,13 +528,14 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-02-negro-4.webp",
       ]},
     ],
+	tallaExtra: true
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
     masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:503, nombre:"Sombra Alada", coleccion:"sivarx", categoria:"prendas",
-    precio:25.99, precioTachado:30.00,
+    precio:25.99, precioTachado:32.00,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
         "assets/productos/sivarx/sivarx-03-negro-1.webp",
@@ -542,6 +544,7 @@ const PRODUCTOS = [
         "assets/productos/sivarx/sivarx-03-negro-4.webp",
       ]},
     ],
+	tallaExtra: true
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
     masVisto:false, destacado:false, disponible:true, linkPago:"#",
