@@ -48,7 +48,7 @@ const STORE_CONFIG = {
   premiumExtra:      2.99,
   envio2x1:          4.67,
   whatsapp:          "50376925839",
-  proximoLanzamiento:"2026-05-30T18:30:00",
+  proximoLanzamiento:"2026-07-30T18:30:00",
   dropActivo: {
     titulo:      "Colección Básica",
     descripcion: "Diseños premium desde El Salvador. Tallas XS–XL.",
