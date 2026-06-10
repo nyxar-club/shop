@@ -45,6 +45,7 @@ const STORE_CONFIG = {
     boxy:     { L:2, XL:2 },
   },
   estelarXLExtra:    1.00,
+  tallaExtra:     { L:2, XL:2 },
   premiumExtra:      2.99,
   envio2x1:          4.67,
   whatsapp:          "50376925839",
