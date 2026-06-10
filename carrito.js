@@ -124,6 +124,9 @@ function updateTotal(){
     if(corteActual==='Oversize')p+=STORE_CONFIG.recargos.oversize[tallaActual]||0;
     if(corteActual==='Boxy')    p+=STORE_CONFIG.recargos.boxy[tallaActual]||0;
   }
+    // Recargo por talla L y XL en colecciones que lo requieran
+  if(prod.tallaExtra&&(tallaActual==='L'||tallaActual==='XL'))
+    p+=STORE_CONFIG.tallaExtra[tallaActual]||0;
   if(premActivo)p+=STORE_CONFIG.premiumExtra;
   setText('cartPriceReal',`$${p.toFixed(2)}`);
   setText('subPrenda',`$${p.toFixed(2)}`);
@@ -137,6 +140,9 @@ function calcPrecio(){
     if(corteActual==='Oversize')p+=STORE_CONFIG.recargos.oversize[tallaActual]||0;
     if(corteActual==='Boxy')    p+=STORE_CONFIG.recargos.boxy[tallaActual]||0;
   }
+    // Recargo por talla L y XL en colecciones que lo requieran
+  if(prod.tallaExtra&&(tallaActual==='L'||tallaActual==='XL'))
+    p+=STORE_CONFIG.tallaExtra[tallaActual]||0;
   if(premActivo)p+=STORE_CONFIG.premiumExtra;
   return p;
 }
