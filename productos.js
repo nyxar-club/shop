@@ -50,7 +50,7 @@ const STORE_CONFIG = {
   whatsapp:          "50376925839",
   proximoLanzamiento:"2026-07-30T18:30:00",
   dropActivo: {
-    titulo:      "Colección Básica",
+    titulo:      "Colección Sivar x Nyxar",
     descripcion: "Diseños premium desde El Salvador. Tallas XS–XL.",
     linkBoton:   "#productos",
   },
