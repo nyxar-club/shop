@@ -239,7 +239,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Seis colores para un solo diseño.",
-    masVisto:true, destacado:true, disponible:true, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:107, nombre:"Dragón de Batalla", coleccion:"basica", categoria:"prendas",
@@ -495,7 +495,7 @@ const PRODUCTOS = [
      SivarxNyxar — muy pronto
   ═══════════════════════════════════ */
   {
-    id:501, nombre:"SivarxNyxar — 1", coleccion:"sivarx", categoria:"prendas",
+    id:501, nombre:"Raíz 503", coleccion:"sivarx", categoria:"prendas",
     precio:25.99, precioTachado:30.00,
     colores:[
       { nombre:"Blanco", hex:"#f0f0f0", imagenes:[
@@ -513,10 +513,10 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:true, destacado:true, disponible:true, linkPago:"#",
   },
   {
-    id:502, nombre:"SivarxNyxar — 2", coleccion:"sivarx", categoria:"prendas",
+    id:502, nombre:"Codigo 503", coleccion:"sivarx", categoria:"prendas",
     precio:25.99, precioTachado:30.00,
     colores:[
       { nombre:"Blanco", hex:"#f0f0f0", imagenes:[
@@ -528,10 +528,10 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
-    id:503, nombre:"SivarxNyxar — 3", coleccion:"sivarx", categoria:"prendas",
+    id:503, nombre:"Sombra Alada", coleccion:"sivarx", categoria:"prendas",
     precio:25.99, precioTachado:30.00,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
@@ -543,6 +543,6 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Próximamente — SivarxNyxar.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
 ];
