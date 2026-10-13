@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <title>NYXAR — Detalle de prenda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="carrito.css"/>
+</head>
+<body class="carrito-page">
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner" style="grid-template-columns:auto 1fr auto;gap:1rem">
+    <a href="index.html" class="btn-back">← Volver</a>
+    <a href="index.html" class="nav-logo" style="justify-self:center">
+      <img src="assets/icono-ppal.png" alt="NYXAR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-fallback" style="display:none">NYXAR</span>
+    </a>
+    <a href="armario.html" class="nav-armario">
+      🧺 Armario
+      <span class="armario-count" id="armarioBadge">0</span>
+    </a>
+  </div>
+</nav>
+
+<main class="cart-main">
+  <div class="cart-layout">
+
+    <!-- Galería -->
+    <div class="cart-gallery">
+      <img class="cart-main-img" id="cartMainImg" src="" alt=""/>
+      <div class="cart-thumbs" id="cartThumbs"></div>
+    </div>
+
+    <!-- Configuración -->
+    <div class="cart-config">
+      <p class="cart-col-tag" id="cartColTag"></p>
+      <h1 class="cart-name" id="cartName"></h1>
+
+      <div class="cart-price-wrap">
+        <span class="price-tach" id="cartPriceTach"></span>
+        <span class="price-real" id="cartPriceReal"></span>
+        <span class="price-badge">Oferta</span>
+      </div>
+
+      <!-- Colores -->
+      <div class="cart-field" id="fieldColor" style="display:none">
+        <p class="field-lbl">Color</p>
+        <div class="cdots" id="cartColorDots"></div>
+        <p class="color-sel" id="cartColorName"></p>
+      </div>
+
+      <!-- Talla -->
+      <div class="cart-field" id="fieldTalla" style="display:none">
+        <p class="field-lbl">Talla <span class="xl-note" id="xlNote" style="display:none">· XL +$1.00 (Estelar)</span></p>
+        <div class="chip-row" id="tallaChips"></div>
+      </div>
+
+      <!-- Corte -->
+      <div class="cart-field" id="fieldCorte" style="display:none">
+        <div class="field-lbl-row">
+          <p class="field-lbl">Corte <span class="corte-note">· Oversize +$1 / Boxy +$2 en L y XL</span></p>
+          <button class="ver-cortes-btn" onclick="abrirModalCortes()">¿Cómo se ve cada corte? →</button>
+        </div>
+        <div class="chip-row" id="corteChips"></div>
+      </div>
+
+      <p class="cart-desc" id="cartDesc"></p>
+
+      <!-- Subtotal -->
+      <div class="cart-subtotal">
+        <div class="sub-row"><span>Prenda</span><span id="subPrenda">$0</span></div>
+        <div class="sub-row envio-row"><span>Envío</span><span class="free-tag">GRATIS</span></div>
+        <div class="sub-divider"></div>
+        <div class="sub-row sub-total"><span>Total</span><span id="subTotal">$0</span></div>
+      </div>
+
+      <!-- Premium (solo aquí) -->
+      <div class="premium-box" id="premiumBox">
+        <div class="prem-left">
+          <div class="prem-icon">
+            <img src="assets/icono-premium.png" alt="Premium" onerror="this.style.display='none';this.parentElement.innerHTML='✦'"/>
+          </div>
+          <div>
+            <strong>Mejorar experiencia</strong>
+            <small>Caja misteriosa + packaging exclusivo</small>
+          </div>
+        </div>
+        <button class="btn-prem" id="btnPrem" onclick="togglePremium()">+ $3.99</button>
+      </div>
+
+      <!-- Acciones -->
+      <div class="cart-actions">
+        <button class="btn-main" id="btnAgregar" onclick="agregarAlArmario()">
+          🧺 Agregar al armario
+        </button>
+        <a href="armario.html" class="btn-outline">Ver mi armario</a>
+        <a href="index.html#productos" class="btn-ghost">← Seguir viendo prendas</a>
+      </div>
+
+      <p class="cart-legal" id="cartLegal">Añade las prendas que quieras y finaliza tu pedido desde el armario.</p>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODAL COMPARATIVA DE CORTES -->
+<div class="cortes-modal-bg" id="cortesModalBg" onclick="cerrarModalCortes()">
+  <div class="cortes-modal" onclick="event.stopPropagation()">
+    <button class="cortes-modal-close" onclick="cerrarModalCortes()">✕</button>
+    <h2 class="cortes-modal-title">¿Cómo se ve cada corte?</h2>
+    <p class="cortes-modal-sub">Toca cada corte para ver la diferencia</p>
+
+    <!-- Tabs de cortes -->
+    <div class="cortes-tabs">
+      <button class="corte-tab active" onclick="selectCorteTab('regular',this)">Regular</button>
+      <button class="corte-tab" onclick="selectCorteTab('oversize',this)">Oversize</button>
+      <button class="corte-tab" onclick="selectCorteTab('boxy',this)">Boxy</button>
+    </div>
+
+    <!-- Paneles -->
+    <div class="corte-panel active" id="panel-regular">
+      <div class="corte-img-wrap">
+        <img src="assets/cortes/regular.webp" alt="Corte Regular"
+             onerror="this.parentElement.classList.add('corte-noimg')"/>
+        <div class="corte-noimg-txt">Regular</div>
+      </div>
+      <div class="corte-info">
+        <h3 class="corte-info-name">Regular</h3>
+        <p class="corte-info-desc">El corte clásico. Ajuste estándar, ni muy pegado ni muy suelto. Ideal para uso diario y tallas exactas.</p>
+        <ul class="corte-features">
+          <li>Talle ajustado al cuerpo</li>
+          <li>Largo estándar</li>
+          <li>Sin cargo extra en ninguna talla</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="corte-panel" id="panel-oversize">
+      <div class="corte-img-wrap">
+        <img src="assets/cortes/oversize.webp" alt="Corte Oversize"
+             onerror="this.parentElement.classList.add('corte-noimg')"/>
+        <div class="corte-noimg-txt">Oversize</div>
+      </div>
+      <div class="corte-info">
+        <h3 class="corte-info-name">Oversize</h3>
+        <p class="corte-info-desc">Más ancho y largo que el regular. Da ese look urbano relajado que busca el streetwear. Recomendado bajar una talla si no quieres demasiado holgado.</p>
+        <ul class="corte-features">
+          <li>Hombros caídos</li>
+          <li>Largo extra</li>
+          <li>+$1 en tallas L y XL</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="corte-panel" id="panel-boxy">
+      <div class="corte-img-wrap">
+        <img src="assets/cortes/boxy.webp" alt="Corte Boxy"
+             onerror="this.parentElement.classList.add('corte-noimg')"/>
+        <div class="corte-noimg-txt">Boxy</div>
+      </div>
+      <div class="corte-info">
+        <h3 class="corte-info-name">Boxy</h3>
+        <p class="corte-info-desc">Forma cuadrada y corta. El más streetwear de los tres. Ancho de hombro amplio y largo más corto que el regular. Estilo muy marcado.</p>
+        <ul class="corte-features">
+          <li>Forma cuadrada</li>
+          <li>Largo corto</li>
+          <li>+$2 en tallas L y XL</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="cortes-img-nota">📸 Sube tus fotos a <strong>assets/cortes/</strong> — regular.webp · oversize.webp · boxy.webp</p>
+  </div>
+</div>
+
+<script src="armario.js"></script>
+<script src="productos.js"></script>
+<script src="carrito.js"></script>
+</body>
+</html>
