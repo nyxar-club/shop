@@ -109,6 +109,29 @@ const PRODUCTOS = [
     masVisto:true, destacado:true, disponible:true, linkPago:"#",
   },
   {
+    id: 902,
+    nombre: "Llamas Nyxar",
+    coleccion: "basica",
+    categoria: "prendas",
+    precio: 26.99,
+    precioTachado: 33.00,
+    colores: [
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/basica/llamas-1.webp",
+        "assets/productos/basica/llamas-2.webp",
+        "assets/productos/basica/llamas-3.webp",
+        "assets/productos/basica/llamas-4.webp",
+      ]},
+    ],
+    tallas: ["XS","S","M","L","XL"],
+    cortes: ["Regular","Oversize","Boxy"],
+    descripcion: "Demuestra el calor que puede tener una palabra sobre tus hombros.",
+    masVisto: true,
+    destacado: false,
+    disponible: true,
+    linkPago: "#",
+  },
+  {
     id:901, nombre:"Hoodie Ajedrez", coleccion:"basica", categoria:"hoodies",
     precio:39.99, precioTachado:55.00,
     colores:[
