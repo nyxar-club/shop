@@ -49,7 +49,7 @@ const STORE_CONFIG = {
   premiumExtra:      3.99,
   envio2x1:          4.67,
   whatsapp:          "50376925839",
-  proximoLanzamiento:"2026-07-30T18:30:00",
+  proximoLanzamiento:"2026-10-19T12:30:00",
   dropActivo: {
     titulo:      "Colección Sivar x Nyxar",
     descripcion: "Diseños premium desde El Salvador. Tallas XS–XL.",
