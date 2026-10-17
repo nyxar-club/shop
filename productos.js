@@ -63,6 +63,7 @@ const COLECCIONES = [
   { id:"dbzxnxr", nombre:"DBZ x NXR"            },
   { id:"nooc",      nombre:"NXR Outlaw Club"      },
   { id:"2x1",       nombre:"Colección 2×1"        },
+  { id:"hallownyx",       nombre:"Hallownyx"        },
   { id:"sivarx",    nombre:"SivarxNyxar"          },
 ];
 
@@ -409,6 +410,100 @@ const PRODUCTOS = [
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"La venganza es lo unico que te alimenta",
     masVisto:false, destacado:false, disponible:true, linkPago:"#",
+  },
+
+  /* ═══════════════════════════════════
+     HALLOWNYX — TIEMPO LIMITADO
+  ═══════════════════════════════════ */
+  {
+    id:905, nombre:"Payaso maldit0", coleccion:"hallownyx", categoria:"prendas",
+    precio:35.75, precioTachado:39.99,
+    colores:[
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/hallonyx/art1.webp",
+        "assets/productos/hallonyx/art2.webp",
+        "assets/productos/hallonyx/art3.webp",
+        "assets/productos/hallonyx/art4.webp",
+      ]},
+    ],
+    tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
+    descripcion:"No te dejes engañar solo por ver un payaso.",
+    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+  },
+  {
+    id:906, nombre:"Freddy", coleccion:"hallownyx", categoria:"prendas",
+    precio:35.75, precioTachado:39.99,
+    colores:[
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/hallonyx/f1.webp",
+        "assets/productos/hallonyx/f2.webp",
+        "assets/productos/hallonyx/f3.webp",
+        "assets/productos/hallonyx/f4.webp",
+      ]},
+    ],
+    tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
+    descripcion:"Te sigue hasta cuando estas dormido.",
+    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+  },
+  {
+    id:907, nombre:"Hallownyx essence", coleccion:"hallownyx", categoria:"prendas",
+    precio:30.75, precioTachado:35.00,
+    colores:[
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/hallonyx/he1.webp",
+        "assets/productos/hallonyx/he2.webp",
+        "assets/productos/hallonyx/he3.webp",
+        "assets/productos/hallonyx/he4.webp",
+      ]},
+    ],
+    tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
+    descripcion:"La verdadera esencia de Hallownyx.",
+    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+  },
+  {
+    id:908, nombre:"M. Myers", coleccion:"hallownyx", categoria:"prendas",
+    precio:35.75, precioTachado:39.99,
+    colores:[
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/hallonyx/mm1.webp",
+        "assets/productos/hallonyx/mm2.webp",
+        "assets/productos/hallonyx/mm3.webp",
+        "assets/productos/hallonyx/mm4.webp",
+      ]},
+    ],
+    tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
+    descripcion:"Sin una palabra pone a temblar a quien se le ponga enfrente.",
+    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+  },
+  {
+    id:909, nombre:"La Monja", coleccion:"hallownyx", categoria:"prendas",
+    precio:35.75, precioTachado:39.99,
+    colores:[
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/hallonyx/v1.webp",
+        "assets/productos/hallonyx/v2.webp",
+        "assets/productos/hallonyx/v3.webp",
+        "assets/productos/hallonyx/v4.webp",
+      ]},
+    ],
+    tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
+    descripcion:"No la quieres ver ni en pintura",
+    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+  },
+  {
+    id:910, nombre:"El Wasaa", coleccion:"hallownyx", categoria:"prendas",
+    precio:30.75, precioTachado:45.00,
+    colores:[
+      { nombre:"Negro", hex:"#111111", imagenes:[
+        "assets/productos/hallonyx/w1.webp",
+        "assets/productos/hallonyx/w2.webp",
+        "assets/productos/hallonyx/w3.webp",
+        "assets/productos/hallonyx/w4.webp",
+      ]},
+    ],
+    tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
+    descripcion:"Muchos lo menosprecian pero haría cosas que nadie haría.",
+    masVisto:false, destacado:false, disponible:false, linkPago:"#",
   },
 
   /* ═══════════════════════════════════
