@@ -140,7 +140,7 @@ img{display:block;max-width:100%}
 .hero-bg-mob{display:none}
 .hero-nuevo-overlay{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(105deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.01) 50%,rgba(0,0,0,.01) 100%);
+  background:linear-gradient(105deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.18) 50%,rgba(0,0,0,.04) 100%);
 }
 .hero-badge-nuevo{
   position:absolute;top:calc(var(--nav-h) + 1rem);left:clamp(1.2rem,5vw,3rem);
