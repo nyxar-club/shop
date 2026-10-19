@@ -420,10 +420,10 @@ const PRODUCTOS = [
     precio:35.75, precioTachado:39.99,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/hallonyx/art1.webp",
-        "assets/productos/hallonyx/art2.webp",
-        "assets/productos/hallonyx/art3.webp",
-        "assets/productos/hallonyx/art4.webp",
+        "assets/productos/hallownyx/art1.webp",
+        "assets/productos/hallownyx/art2.webp",
+        "assets/productos/hallownyx/art3.webp",
+        "assets/productos/hallownyx/art4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -435,10 +435,10 @@ const PRODUCTOS = [
     precio:35.75, precioTachado:39.99,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/hallonyx/f1.webp",
-        "assets/productos/hallonyx/f2.webp",
-        "assets/productos/hallonyx/f3.webp",
-        "assets/productos/hallonyx/f4.webp",
+        "assets/productos/hallownyx/f1.webp",
+        "assets/productos/hallownyx/f2.webp",
+        "assets/productos/hallownyx/f3.webp",
+        "assets/productos/hallownyx/f4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -450,10 +450,10 @@ const PRODUCTOS = [
     precio:30.75, precioTachado:35.00,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/hallonyx/he1.webp",
-        "assets/productos/hallonyx/he2.webp",
-        "assets/productos/hallonyx/he3.webp",
-        "assets/productos/hallonyx/he4.webp",
+        "assets/productos/hallownyx/he1.webp",
+        "assets/productos/hallownyx/he2.webp",
+        "assets/productos/hallownyx/he3.webp",
+        "assets/productos/hallownyx/he4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -465,10 +465,10 @@ const PRODUCTOS = [
     precio:35.75, precioTachado:39.99,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/hallonyx/mm1.webp",
-        "assets/productos/hallonyx/mm2.webp",
-        "assets/productos/hallonyx/mm3.webp",
-        "assets/productos/hallonyx/mm4.webp",
+        "assets/productos/hallownyx/mm1.webp",
+        "assets/productos/hallownyx/mm2.webp",
+        "assets/productos/hallownyx/mm3.webp",
+        "assets/productos/hallownyx/mm4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -480,10 +480,10 @@ const PRODUCTOS = [
     precio:35.75, precioTachado:39.99,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/hallonyx/v1.webp",
-        "assets/productos/hallonyx/v2.webp",
-        "assets/productos/hallonyx/v3.webp",
-        "assets/productos/hallonyx/v4.webp",
+        "assets/productos/hallownyx/v1.webp",
+        "assets/productos/hallownyx/v2.webp",
+        "assets/productos/hallownyx/v3.webp",
+        "assets/productos/hallownyx/v4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
@@ -495,10 +495,10 @@ const PRODUCTOS = [
     precio:30.75, precioTachado:45.00,
     colores:[
       { nombre:"Negro", hex:"#111111", imagenes:[
-        "assets/productos/hallonyx/w1.webp",
-        "assets/productos/hallonyx/w2.webp",
-        "assets/productos/hallonyx/w3.webp",
-        "assets/productos/hallonyx/w4.webp",
+        "assets/productos/hallownyx/w1.webp",
+        "assets/productos/hallownyx/w2.webp",
+        "assets/productos/hallownyx/w3.webp",
+        "assets/productos/hallownyx/w4.webp",
       ]},
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
