@@ -107,7 +107,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Diseño icónico de la Colección Básica.",
-    masVisto:true, destacado:true, disponible:true, linkPago:"#",
+    masVisto:false, destacado:true, disponible:true, linkPago:"#",
   },
   {
     id: 902,
@@ -145,7 +145,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Sudadera"],
     descripcion:"Nacimiento de la marca.",
-    masVisto:true, destacado:false, disponible:true, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:102, nombre:"Griega", coleccion:"basica", categoria:"prendas",
@@ -205,7 +205,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"El emblema de la marca en 8 variantes de color.",
-    masVisto:true, destacado:true, disponible:true, linkPago:"#",
+    masVisto:false, destacado:true, disponible:true, linkPago:"#",
   },
   {
     id:104, nombre:"Pieza de Ajedrez", coleccion:"basica", categoria:"prendas",
@@ -428,7 +428,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"No te dejes engañar solo por ver un payaso.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:true destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:906, nombre:"Freddy", coleccion:"hallownyx", categoria:"prendas",
@@ -443,7 +443,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Te sigue hasta cuando estas dormido.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:true, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:907, nombre:"Hallownyx essence", coleccion:"hallownyx", categoria:"prendas",
@@ -458,7 +458,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"La verdadera esencia de Hallownyx.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:908, nombre:"M. Myers", coleccion:"hallownyx", categoria:"prendas",
@@ -473,7 +473,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Sin una palabra pone a temblar a quien se le ponga enfrente.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:909, nombre:"La Monja", coleccion:"hallownyx", categoria:"prendas",
@@ -488,7 +488,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"No la quieres ver ni en pintura",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
   {
     id:910, nombre:"El Wasaa", coleccion:"hallownyx", categoria:"prendas",
@@ -503,7 +503,7 @@ const PRODUCTOS = [
     ],
     tallas:["XS","S","M","L","XL"], cortes:["Regular","Oversize","Boxy"],
     descripcion:"Muchos lo menosprecian pero haría cosas que nadie haría.",
-    masVisto:false, destacado:false, disponible:false, linkPago:"#",
+    masVisto:false, destacado:false, disponible:true, linkPago:"#",
   },
 
   /* ═══════════════════════════════════
